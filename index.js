@@ -1,10 +1,21 @@
-const ejs = require('ejs')
-const fs = require('fs')
+const sendMail = require("./src/sendEmail")
 
-ejs.renderFile('./template.ejs',{
-    items: ['Lista1','Lista2']
-},(err,html)=>{
-    fs.writeFile('template.html',html,(err)=>{
-        console.log('Ok')
-    })
-})
+const str = `
+<% items.forEach(item => { %> 
+    <h1> <%=item.name%> </h1>
+    <p> <%=item.message%> </p>
+<% }) %>
+`
+
+const data = {
+    items:[
+        {
+            name:"Rogério",
+            message:"Olá estou testando a mensagem"
+        }
+    ],
+    
+}
+
+
+sendMail(str, data).send('wx2sistemasteste', 'jefer210784@gmail.com', 'Teste')

@@ -1,7 +1,11 @@
-<h1>Teste</h1>
+<!-- <h1>Teste</h1>
 <p>Testando</p>
 <ul>
     <% items.forEach(item=> { %> 
         <li> <%= item %> </li>
      <% } ) %>
-</ul>
+</ul> -->
+<% items.forEach(item => { %> 
+    <h1> <%=item.name%> </h1>
+    <p> <%=item.message%> </p>
+<% }) %>
