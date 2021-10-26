@@ -10,13 +10,13 @@ const sendMail = (ejsTemplate, data, files = []) => {
         throw Error(`Error happens when trying compiler EJS: ${e.message}`)
     }
 
-    const send = (from, to, subject,files) => {
+    const send = (from, to, subject, files) => {
         const smtpData = {
             body,
             from,
             to,
             subject,
-            files,
+            files
         }
 
         mailService(smtpData)

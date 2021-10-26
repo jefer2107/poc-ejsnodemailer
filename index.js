@@ -1,21 +1,20 @@
 const sendMail = require("./src/sendEmail")
 
 const str = `
-<% items.forEach(item => { %> 
-    <h1> <%=item.name%> </h1>
-    <p> <%=item.message%> </p>
-<% }) %>
+    <h1> <%=name%> </h1>
+    <p> <%=message%> </p>
+    <% lista.forEach(field=> {%>
+        <%= field %>
+    <%}) %>
+
 `
 
 const data = {
-    items:[
-        {
-            name:"Rogério",
-            message:"Olá estou testando a mensagem"
-        }
-    ],
-    
+    cid:"",
+    name:"Rogério",
+    message:"Olá estou testando a mensagem",
+    lista:['Lista 1','Lista 2']
 }
 
 
-sendMail(str, data).send('wx2sistemasteste', 'jefer210784@gmail.com', 'Teste')
+sendMail(str, data).send('wx2sistemasteste@gmail.com', 'jefer210784@gmail.com', 'Teste')

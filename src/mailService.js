@@ -1,27 +1,22 @@
 const nodemailer = require('nodemailer')
 
 
-const mailService = ({body,from,to,subject})=>{
+const mailService = ({body,from,to,subject,files})=>{
     const transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
         secure: false,
         auth: {
-            user: to,
+            user: 'wx2sistemasteste@gmail.com',
             pass: 'm3t@lp0p0'
         }
     });
     
     
     const mailOptions = {
-        from: from,
-        to: to,
-        subject: subject,
-        // attachments: [{
-        //     filename: 'html5.png',
-        //     path: 'pocsendmail/images/html5.png',
-        //     cid: 'htmlteste'
-        // }],
-
+        from,
+        to,
+        subject,
+        attachments: files,
         html: body
     };
     
